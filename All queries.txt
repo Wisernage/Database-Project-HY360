@@ -1,0 +1,41 @@
+EmployeeServlet, line 49: String query = "SELECT * FROM employee WHERE username = ?";
+EmployeeServlet, line 60: query = "INSERT INTO employee (username, fname, lastname, marital_status, children, ages, staff_category_id, department_id, start_date, end_date, address, telephone, bank_account, bank_name) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+EmployeeServlet, line 84 query = "INSERT INTO employee (username, fname, lastname, marital_status, children, ages, staff_category_id, department_id, start_date, end_date, address, telephone, bank_account, bank_name) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+EmployeeServlet, line 104: query = "SELECT staff_category_id FROM employee WHERE username = ? AND (staff_category_id = 3 OR staff_category_id = 4)";
+EmployeeServlet, line 109: query = "UPDATE employee SET fname = ?, lastname = ?, marital_status = ?, children = ?, ages = ?, staff_category_id = ?, department_id = ?, address = ?, telephone = ?, bank_account = ?, bank_name = ? WHERE username = ?";
+EmployeeServlet, line 133: query = "UPDATE employee SET fname = ?, lastname = ?, marital_status = ?, children = ?, ages = ?, staff_category_id = ?, department_id = ?, address = ?, telephone = ?, bank_account = ?, bank_name = ? WHERE username = ?";
+FireServlet, line 45: String query = "SELECT * FROM employee WHERE username = ?";
+FireServlet, line 60: query = "SELECT * FROM staff_category WHERE staff_category_id = ?";
+FireServlet, line 103: query = "INSERT INTO payroll_payment (fname, lastname, payment_date, total_amount) VALUES (?, ?, NOW(), ?)";
+FireServlet, line 134: query = "DELETE FROM employee WHERE username = ?";
+PaymentServlet, line 42: String query = "SELECT * FROM employee";
+PaymentServlet, line 56: query = "SELECT * FROM staff_category WHERE staff_category_id = ?";
+PaymentServlet, line 99: query = "INSERT INTO payroll_payment (fname, lastname, payment_date, total_amount) VALUES (?, ?, NOW(), ?)";
+QuestionServlet, line 45: String query = "SELECT * FROM employee";
+QuestionServlet, line 59: query = "SELECT * FROM staff_category WHERE staff_category_id = ?";
+QuestionServlet, line 136: String query = "SELECT * FROM employee";
+QuestionServlet, line 153: query = "SELECT * FROM staff_category WHERE staff_category_id = ?";
+QuestionServlet, line 235: String query = "SELECT * FROM employee";
+QuestionServlet, line 248: query = "SELECT * FROM staff_category WHERE staff_category_id = ?";
+QuestionServlet, line 313: String query = "SELECT * FROM employee WHERE username = ?";
+QuestionServlet, line 334: query = "SELECT * FROM staff_category WHERE staff_category_id = ?"
+QuestionServlet, line 377: "INSERT INTO payroll_payment (fname, lastname, payment_date, total_amount) VALUES (?, ?, NOW(), ?)"
+QuestionServlet, line 432: String query = "SELECT * FROM employee";
+QuestionServlet, line 452: query = "SELECT * FROM staff_category WHERE staff_category_id = ?";
+QuestionServlet, line 495: "INSERT INTO payroll_payment (fname, lastname, payment_date, total_amount) VALUES (?, ?, NOW(), ?)"
+RaiseSalaryServlet, lines 36-48:
+
+String query = switch (option) {
+                case 1 -> "UPDATE staff_category SET salary = salary + (salary * ?) WHERE staff_category_id = 1";
+                case 2 -> "UPDATE staff_category SET salary = salary + (salary * ?) WHERE staff_category_id = 2";
+                case 3 -> "UPDATE staff_category SET salary = salary + (salary * ?) WHERE staff_category_id = 3";
+                case 4 -> "UPDATE staff_category SET salary = salary + (salary * ?) WHERE staff_category_id = 4";
+                case 5 -> "UPDATE staff_category SET salary = salary + (salary * ?)";
+                case 6 ->
+                        "UPDATE staff_category SET research_allowance = research_allowance + (research_allowance * ?) WHERE staff_category_id = 3";
+                case 7 ->
+                        "UPDATE staff_category SET library_allowance = library_allowance + (library_allowance * ?) WHERE staff_category_id = 4";
+                case 8 -> "UPDATE staff_category SET family_allowance = family_allowance + (? * 100)";
+                default -> throw new ServletException("Invalid option selected");
+            };
+

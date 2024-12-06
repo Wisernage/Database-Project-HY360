@@ -1,0 +1,62 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+  <display-name>Archetype Created Web Application</display-name>
+
+
+  <servlet>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <servlet-class>servlets.EmployeeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>RaiseSalaryServlet</servlet-name>
+    <servlet-class>servlets.RaiseSalaryServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PaymentServlet</servlet-name>
+    <servlet-class>servlets.PaymentServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>FireServlet</servlet-name>
+    <servlet-class>servlets.FireServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>QuestionServlet</servlet-name>
+    <servlet-class>servlets.QuestionServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <url-pattern>/hire</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>RaiseSalaryServlet</servlet-name>
+    <url-pattern>/raise</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PaymentServlet</servlet-name>
+    <url-pattern>/payment</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>FireServlet</servlet-name>
+    <url-pattern>/fire</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>QuestionServlet</servlet-name>
+    <url-pattern>/question</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>

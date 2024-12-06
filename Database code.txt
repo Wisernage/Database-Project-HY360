@@ -1,0 +1,70 @@
+CREATE DATABASE HY360;
+USE HY360;
+
+CREATE TABLE staff_category (
+    staff_category_id INT AUTO_INCREMENT PRIMARY KEY,
+    staff ENUM('administrative', 'teaching'),
+    contract_category ENUM('permanent', 'contractual'),
+    salary DECIMAL(10,2) NOT NULL,
+    research_allowance DECIMAL(10,2) NOT NULL,
+    library_allowance DECIMAL(10,2) NOT NULL,
+    family_allowance INT NOT NULL
+);
+
+CREATE TABLE department (
+    department_id INT AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE employee (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    fname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    marital_status ENUM('single', 'married') NOT NULL,
+    children INT,
+    ages VARCHAR(255),
+    staff_category_id INT NOT NULL,
+    department_id INT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE,
+    address VARCHAR(255) NOT NULL,
+    telephone VARCHAR(255) NOT NULL,
+    bank_account VARCHAR(255) NOT NULL,
+    bank_name VARCHAR(255)NOT NULL,
+    FOREIGN KEY (staff_category_id) REFERENCES staff_category(staff_category_id),
+    FOREIGN KEY (department_id) REFERENCES department(department_id)
+);
+
+CREATE TABLE payroll_payment (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,
+    fname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    payment_date DATE NOT NULL,
+    total_amount DECIMAL(10,2) NOT NULL
+);
+
+INSERT INTO staff_category (staff, contract_category, salary, research_allowance, library_allowance, family_allowance) VALUES ('administrative', 'permanent', 3000, 0, 0, 5);
+INSERT INTO staff_category (staff, contract_category, salary, research_allowance, library_allowance, family_allowance) VALUES ('teaching', 'permanent', 2000, 0, 0, 5);
+INSERT INTO staff_category (staff, contract_category, salary, research_allowance, library_allowance, family_allowance) VALUES ('administrative', 'contractual', 2300, 500, 0, 5);
+INSERT INTO staff_category (staff, contract_category, salary, research_allowance, library_allowance, family_allowance) VALUES ('teaching', 'contractual', 1600, 0, 300, 5);
+INSERT INTO department (department_name) VALUES ("Administrative Department");
+INSERT INTO department (department_name) VALUES ("Teaching Department");
+INSERT INTO department (department_name) VALUES ("Marketing Department");
+INSERT INTO department (department_name) VALUES ("Financial Department");
+INSERT INTO department (department_name) VALUES ("HR Department");
+
+INSERT INTO employee (username,fname,lastname,marital_status,children,ages,staff_category_id,department_id,start_date,end_date,address,telephone,bank_account,bank_name)
+VALUES ("Gregory","GRIGORIS","KESIDIS",'married',0,"0",1,2,"2020-01-02",NULL,"ANDREA PAPANDREOY 7","6981111208","GR3252045923059","CRETA BANK");
+
+INSERT INTO employee (username,fname,lastname,marital_status,children,ages,staff_category_id,department_id,start_date,end_date,address,telephone,bank_account,bank_name)
+VALUES ("Raphaela","RAFAELA","ZIOUTI",'married',2,"1,4",3,3,"2022-01-04","2024-01-04","APALOS","6987091910","GR3252345923087","EUROBANK");
+
+INSERT INTO employee (username,fname,lastname,marital_status,children,ages,staff_category_id,department_id,start_date,end_date,address,telephone,bank_account,bank_name)
+VALUES ("Anna", "ANNA","ZOGRAFOU",'single',3,"4,5,7",4,3,"2019-01-10","2029-01-06","MARANTOY GIOFIRO 3","6982345678","GR6252012923034","EUROBANK");
+
+INSERT INTO employee (username,fname,lastname,marital_status,children,ages,staff_category_id,department_id,start_date,end_date,address,telephone,bank_account,bank_name)
+VALUES ("Konstantinos","KOSTAS","ALMPANIS",'married',0,"0",1,2,"2021-01-02",NULL,"KONDILAKI 32","6972348762","GR1552675925009","CRETA BANK");
+
+INSERT INTO employee (username,fname,lastname,marital_status,children,ages,staff_category_id,department_id,start_date,end_date,address,telephone,bank_account,bank_name)
+VALUES ("Stephan","STEFANOS","TSITSIPAS",'married',2,"5,6",4,2,"2020-01-02","2022-01-02","PATHSION 32","6978569810","GR00002654544","PIRAEUS");
